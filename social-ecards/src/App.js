@@ -8,6 +8,9 @@ import {
 import Home from './components/Home'
 import Login from './components/Login'
 import Header from './components/Header'
+import Logout from './components/Logout'
+import Profile from './components/Profile'
+import CardMaker from './components/AddCard'
 
 class App extends React.Component {
   constructor () {
@@ -36,8 +39,9 @@ class App extends React.Component {
         <Switch>
           <Route path='/' exact component={Home}> </Route>
           <Route path='/login' exact component={Login}> Login </Route>
-          <Route path='/profile'> Profile </Route>
-          <Route path='/add-card'> Add Card </Route>
+          <Route path='/logout/'><Logout onLogout={this.handleLogout} /></Route>
+          <Route path='/profile'> <Profile token={this.state.token} username={this.state.username} /></Route>
+          <Route path='/add-card'> <CardMaker token={this.state.token} username={this.state.username} Add Card /> </Route>
           <Route path='/all/cards'> All Cards </Route>
           <Route path='/followed/cards'> Followed Cards </Route>
         </Switch>

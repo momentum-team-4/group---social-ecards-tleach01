@@ -14,10 +14,9 @@ class Header extends React.Component {
           {this.props.token
             ? (
               <div className='header'>
-                <h1>Social E-Cards</h1>
+                <h1>Instaky</h1>
                 <div className='navbar'>
                   <Nav />
-                  <Link to='/logout/'><p className='links'>Log out</p></Link>
                 </div>
               </div>
 
@@ -25,7 +24,7 @@ class Header extends React.Component {
             : (
               <div>
                 <div className='header'>
-                  <h1>Social E-Cards</h1>
+                  <h1>Instaky</h1>
                 </div>
 
                 <div>

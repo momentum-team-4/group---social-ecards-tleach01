@@ -9,6 +9,7 @@ class Nav extends React.Component {
       <div>
         <div className='navlinks'>
           <Link to='/login'><p className='links'>Login</p></Link>
+          <Link to='/logout'><p className='links'>Logout</p></Link>
           <Link to='/profile'><p className='links'>Profile</p></Link>
           <Link to='/add-card'><p className='links'>New Cards</p></Link>
           <Link to='/all/cards'><p className='links'>All Cards</p></Link>
