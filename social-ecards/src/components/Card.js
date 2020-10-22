@@ -5,7 +5,7 @@ import classNames from 'classnames'
 export default function MyCard ({ card }) {
   return (
     <div>
-      <Card style={{ width: '20rem' }}>
+      <Card style={{ width: '25rem' }}>
         <Card.Body className={classNames({
           backgroundWhite: this.state.cardColor === 'white',
           backgroundRed: this.state.cardColor === 'red',
@@ -33,18 +33,16 @@ export default function MyCard ({ card }) {
           fontSizeJumbo: this.state.fontSize === 'xxxtra large'
         })}
         >
-          <Card.Title>{this.state.title}</Card.Title>
+          <Card.Title>{card.title}</Card.Title>
           <Card.Text>
-            <p> {this.state.innertext}
-            </p>
-            <p>
-              {this.state.outertext}
-            </p>
+            {card.outer_text}
+            {card.inner_text}
           </Card.Text>
         </Card.Body>
 
       </Card>
       <p>{card.user}</p>
+
     </div>
   )
 }

@@ -8,6 +8,11 @@ body {
   font-family: 'American Typewriter';
 }
 
+.addHeader{
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
 input, label {
   display: block;
   width: 60%;
@@ -29,7 +34,7 @@ input {
 }
 
 input{
-  border: rgb(0, 72, 94) solid 5px;
+  border: rgba(6, 41, 118, 0.824) solid 5px;
 }
 
 label{
@@ -50,11 +55,19 @@ label{
 }
 
 .navlinks a:hover{
-  background-color: teal;
+  background-color: rgb(0, 15, 128);
   cursor: pointer;
-
 }
 
+button{
+  background-color: rgba(14, 72, 198, 0.824);
+  font-family: 'American Typewriter';
+  color: aliceblue;
+  padding: 5px;
+  font-size: large;
+  border-radius: 5px;
+  margin-top: 1rem;
+}
 
 .backgroundWhite{
 background-color: white;
@@ -77,10 +90,14 @@ background-color: rgb(0, 147, 0);
 }                    
 .backgroundBlue{
 background-color: deepskyblue;
-}                  
+}               
+.backgroundTeal{
+  background-color: rgb(51, 210, 210);
+  color: white;
+}   
 .backgroundIndigo{
-background-color: rgb(25, 0, 99);
-color: black;
+background-color: rgb(43, 0, 170);
+color: white;
 }
 .backgroundViolet{
 background-color: rgb(150, 55, 150);
@@ -92,23 +109,26 @@ color: white;
 }               
 .borderSolid{
 border: black solid 5px;
+margin: 1px;
+padding: 5px;
 }   
 .borderDashed{
 border: dashed 5px black;
 margin: 1px;
+padding: 5px;
 }
 .borderDotted{
-  border-top: 5px dotted #000;
-  border-bottom: 5px dotted #000;
-  box-shadow: inset 0 -2px 0 0 #000, inset 0 2px 0 0 #000, 0 2px 0 0 #000,
-    0 -2px 0 0 #000;
+  border: 5px dotted #000;
   margin-bottom: 1px;
+  padding: 5px;
 } 
 .borderDouble{
   border: 10px black double;
+  margin: 1px;
+  padding: 5px;
 }
 .fontComicSans{
-font-family: 'Comic Sans';
+  font-family: 'Comic Neue', cursive;
 }
 .fontPapyrus{
 font-family: ;
@@ -116,6 +136,7 @@ font-family: ;
 .fontWingdings{
 font-family: ;
 }                  
+
 .alignmentLeft{
 text-align: left;
 } 
@@ -129,14 +150,14 @@ text-align: center;
 text-align: justify;
 }
 .fontSizeSmall{
-font-size: small;
-}
-.fontSizeMedium{
 font-size: medium;
 }
-.fontSizeLarge{
+.fontSizeMedium{
 font-size: larger;
 }
+.fontSizeLarge{
+font-size: x-large;
+}
 .fontSizeJumbo{
-font-size: xx-large;
+font-size: 250%;
 }

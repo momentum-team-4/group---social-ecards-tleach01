@@ -14,11 +14,11 @@ class CardMaker extends React.Component {
     super()
     this.state = {
       title: '',
-      outertext: '',
-      innertext: '',
+      outer_text: '',
+      inner_text: '',
       cardColor: '',
       borderStyle: '',
-      fontStyle: 'comic sans',
+      fontStyle: 'American Typewriter',
       textAlign: '',
       fontSize: '',
       created: false
@@ -29,6 +29,7 @@ class CardMaker extends React.Component {
     this.handleColorChange = this.handleColorChange.bind(this)
     this.handleBorderChange = this.handleBorderChange.bind(this)
     this.handleFontChange = this.handleFontChange.bind(this)
+
     this.handleTextAlignChange = this.handleTextAlignChange.bind(this)
     this.handleFontSizeChange = this.handleFontSizeChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -69,10 +70,10 @@ class CardMaker extends React.Component {
   handleSubmit (event) {
     event.preventDefault()
     axios
-      .post('http://instaky.herokuapp.com/api/cards', {
+      .post('http://instaky.herokuapp.com/cards', {
         title: this.state.title,
-        outer_text: this.state.outertext,
-        inner_text: this.state.innertext,
+        outer_text: this.state.outer_text,
+        inner_text: this.state.inner_text,
         card_color: this.state.cardColor,
         border_style: this.state.borderStyle,
         font_style: this.state.fontStyle,
@@ -95,22 +96,70 @@ class CardMaker extends React.Component {
     }
     return (
       <div>
-        <h1> Make new cards!</h1>
+        <h1 className='addHeader'> Add new cards!</h1>
+        <Col>
+          <div>
+            <Card style={{ width: '25rem' }}>
+              <Card.Body className={classNames({
+                backgroundWhite: this.state.cardColor === 'white',
+                backgroundRed: this.state.cardColor === 'red',
+                backgroundOrange: this.state.cardColor === 'orange',
+                backgroundYellow: this.state.cardColor === 'yellow',
+                backgroundGreen: this.state.cardColor === 'green',
+                backgroundBlue: this.state.cardColor === 'blue',
+                backgroundTeal: this.state.cardColor === 'teal',
+                backgroundIndigo: this.state.cardColor === 'indigo',
+                backgroundViolet: this.state.cardColor === 'violet',
+                backgroundBlack: this.state.cardColor === 'black',
+                borderSolid: this.state.borderStyle === 'solid',
+                borderDashed: this.state.borderStyle === 'dashed',
+                borderDotted: this.state.borderStyle === 'dotted',
+                borderDouble: this.state.borderStyle === 'double',
+                fontComicSans: this.state.fontStyle === 'Comic Sans',
+                fontPapyrus: this.state.fontStyle === 'Papyrus',
+                fontWingdings: this.state.fontStyle === 'Wingdings',
+                alignmentLeft: this.state.textAlign === 'left',
+                alignmentRight: this.state.textAlign === 'right',
+                alignmentCenter: this.state.textAlign === 'center',
+                alignmentJustified: this.state.textAlign === 'justified',
+                fontSizeSmall: this.state.fontSize === 'small',
+                fontSizeMedium: this.state.fontSize === 'medium',
+                fontSizeLarge: this.state.fontSize === 'large',
+                fontSizeJumbo: this.state.fontSize === 'xxxtra large'
+              })}
+              >
+                <Card.Title>{this.state.title}</Card.Title>
+                <Card.Text>
+
+                  {this.state.innertext}
+
+                </Card.Text>
+
+                <Card.Text>
+                  {this.state.outertext}
+
+                </Card.Text>
+
+              </Card.Body>
+
+            </Card>
+          </div>
+        </Col>
         <Container fluid>
           <Row>
             <Col>
               <div>
                 <Form onSubmit={this.handleSubmit}>
                   <Form.Group controlId='addTitle'>
-                    <Form.Control type='text' value={this.state.title} onChange={this.handleTitleChange} required />
+                    <Form.Control type='text' placeholder='Card name or title' value={this.state.title} onChange={this.handleTitleChange} required />
                   </Form.Group>
 
                   <Form.Group controlId='addCardInnerText'>
-                    <Form.Control type='text' value={this.state.innertext} onChange={this.handleOuterTextChange} />
+                    <Form.Control type='text' style={{ height: 100 }} placeholder='Front of card' value={this.state.innertext} onChange={this.handleInnerTextChange} />
                   </Form.Group>
 
                   <Form.Group controlId='addCardOuterText'>
-                    <Form.Control type='text' value={this.state.outertext} onChange={this.handleInnerTextChange} />
+                    <Form.Control type='text' style={{ height: 100 }} placeholder='Back of card' value={this.state.outertext} onChange={this.handleOuterTextChange} />
                   </Form.Group>
 
                   <Form.Group controlId='CardColor'>
@@ -122,6 +171,7 @@ class CardMaker extends React.Component {
                       <option value='yellow'>Yellow</option>
                       <option value='green'>Green</option>
                       <option value='blue'>Blue</option>
+                      <option value='teal'>Teal</option>
                       <option value='indigo'>Indigo</option>
                       <option value='violet'>Violet</option>
                       <option value='black'>Black </option>
@@ -129,7 +179,7 @@ class CardMaker extends React.Component {
                   </Form.Group>
 
                   <Form.Group controlId='cardBorder'>
-                    <Form.Label>Card Border</Form.Label>
+                    <Form.Label>Border Style</Form.Label>
                     <Form.Control as='select' onChange={this.handleBorderChange}>
                       <option value='solid'>Solid </option>
                       <option value='dashed'>Dashed </option>
@@ -139,11 +189,12 @@ class CardMaker extends React.Component {
                   </Form.Group>
 
                   <Form.Group controlId='cardFont'>
-                    <Form.Label>Card Font</Form.Label>
+                    <Form.Label>Font Style</Form.Label>
                     <Form.Control as='select' onChange={this.handleFontChange}>
                       <option value='Comic Sans'>Comic Sans</option>
                       <option value='Papyrus'>Papyrus</option>
                       <option value='Wingdings'>Wingdings</option>
+                      {/* add bold, italic, underlined */}
                     </Form.Control>
                   </Form.Group>
 
@@ -174,46 +225,7 @@ class CardMaker extends React.Component {
 
               </div>
             </Col>
-            <Col>
-              <div>
-                <Card style={{ width: '20rem' }}>
-                  <Card.Body className={classNames({
-                    backgroundWhite: this.state.cardColor === 'white',
-                    backgroundRed: this.state.cardColor === 'red',
-                    backgroundOrange: this.state.cardColor === 'orange',
-                    backgroundYellow: this.state.cardColor === 'yellow',
-                    backgroundGreen: this.state.cardColor === 'green',
-                    backgroundBlue: this.state.cardColor === 'blue',
-                    backgroundIndigo: this.state.cardColor === 'indigo',
-                    backgroundViolet: this.state.cardColor === 'violet',
-                    backgroundBlack: this.state.cardColor === 'black',
-                    borderSolid: this.state.borderStyle === 'solid',
-                    borderDashed: this.state.borderStyle === 'dashed',
-                    borderDotted: this.state.borderStyle === 'dotted',
-                    borderDouble: this.state.borderStyle === 'double',
-                    fontComicSans: this.state.fontStyle === 'comic sans',
-                    fontPapyrus: this.state.fontStyle === 'papyrus',
-                    fontWingdings: this.state.fontStyle === 'wingdings',
-                    alignmentLeft: this.state.textAlign === 'left',
-                    alignmentRight: this.state.textAlign === 'right',
-                    alignmentCenter: this.state.textAlign === 'center',
-                    alignmentJustified: this.state.textAlign === 'justified',
-                    fontSizeSmall: this.state.fontSize === 'small',
-                    fontSizeMedium: this.state.fontSize === 'medium',
-                    fontSizeLarge: this.state.fontSize === 'large',
-                    fontSizeJumbo: this.state.fontSize === 'xxxtra large'
-                  })}
-                  >
-                    <Card.Title>{this.state.title}</Card.Title>
-                    <Card.Text>
-                      {this.state.innertext}
-                      {this.state.outertext}
-                    </Card.Text>
-                  </Card.Body>
 
-                </Card>
-              </div>
-            </Col>
           </Row>
         </Container>
 
