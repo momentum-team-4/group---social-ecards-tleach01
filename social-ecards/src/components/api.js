@@ -12,11 +12,29 @@ export function getToken (username, password) {
 }
 
 export function getCard (token, id) {
-  return request.get(`/api/cards/${id}/`, {
+  return request.get(`/cards/${id}/`, {
     headers: {
       Authorization: `Token ${token}`
     }
   }).then(response => {
     return response.data
   })
+}
+
+export function getCards (url, token) {
+  return request.get(url, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(response => {
+    return response.data
+  })
+}
+
+export function getMyCards (token) {
+  return getCards('/cards/me/', token)
+}
+
+export function getAllCards (token) {
+  return getCards('/cards/', token)
 }

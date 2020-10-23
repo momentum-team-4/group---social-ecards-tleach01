@@ -1,6 +1,7 @@
 import React from 'react'
 import Login from './Login'
 import Nav from './NavBar'
+import logo from './logo2.png'
 
 class Header extends React.Component {
   render () {
@@ -9,8 +10,8 @@ class Header extends React.Component {
         <div>
           {this.props.token
             ? (
-              <div className='header'>
-                <h1>Instaky</h1>
+              <div>
+                <h1 className='appheader'> <img src={logo} /> </h1>
                 <div className='navbar'>
                   <Nav />
                 </div>
@@ -19,8 +20,8 @@ class Header extends React.Component {
             )
             : (
               <div>
-                <div className='header'>
-                  <h1>Instaky</h1>
+                <div>
+                  <h1 className='appheader'> <img src={logo} /> </h1>
                 </div>
 
                 <div>

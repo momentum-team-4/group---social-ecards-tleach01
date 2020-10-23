@@ -8,12 +8,11 @@ class Nav extends React.Component {
     return (
       <div>
         <div className='navlinks'>
-          <Link to='/login'><p className='links'>Login</p></Link>
-          <Link to='/logout'><p className='links'>Logout</p></Link>
-          <Link to='/profile'><p className='links'>Profile</p></Link>
-          <Link to='/add-card'><p className='links'>New Cards</p></Link>
-          <Link to='/all/cards'><p className='links'>All Cards</p></Link>
-          <Link to='/followed/cards'> <p className='links'>Followed Cards</p></Link>
+          <Link to='/profile'><p className='links'>Profile <i class="fas fa-user-circle"></i></p></Link>
+          <Link to='/add-card'><p className='links'>Add Cards <i class="far fa-plus-square"></i></p></Link>
+          <Link to='/all/cards'><p className='links'>All Cards <i class="fas fa-layer-group"></i></p></Link>
+          <Link to='/followed/cards'> <p className='links'>Followed Cards <i class="fas fa-chalkboard-teacher"></i></p></Link>
+          <Link to='/logout'><p className='links'>Logout <i class="fas fa-sign-out-alt"></i></p></Link>
         </div>
       </div>
     )

@@ -5,9 +5,11 @@
 }
 
 body {
-  font-family: 'American Typewriter';
+  font-family: 'Comfortaa', cursive;
 }
-
+.appheader{
+  background-color: rgb(52, 52, 52);
+}
 .addHeader{
   margin-bottom: 1.5rem;
   margin-top: 1rem;
@@ -34,7 +36,7 @@ input {
 }
 
 input{
-  border: rgba(6, 41, 118, 0.824) solid 5px;
+  border: rgba(74, 135, 201, 0.824) solid 5px;
 }
 
 label{
@@ -60,7 +62,7 @@ label{
 }
 
 button{
-  background-color: rgba(14, 72, 198, 0.824);
+  background-color: rgba(67, 147, 218, 0.824);
   font-family: 'American Typewriter';
   color: aliceblue;
   padding: 5px;
@@ -90,6 +92,7 @@ background-color: rgb(0, 147, 0);
 }                    
 .backgroundBlue{
 background-color: deepskyblue;
+color: whitesmoke;
 }               
 .backgroundTeal{
   background-color: rgb(51, 210, 210);
@@ -127,15 +130,28 @@ padding: 5px;
   margin: 1px;
   padding: 5px;
 }
-.fontComicSans{
-  font-family: 'Comic Neue', cursive;
+.fontSansSerif{
+  font-family: sans-serif;
 }
-.fontPapyrus{
-font-family: ;
+.fontSerif{
+font-family: serif;
 }               
-.fontWingdings{
-font-family: ;
-}                  
+          
+.styleNormal{
+  font-style: normal;
+}
+
+.styleBold{
+  font-style: bold;
+}
+
+.styleItalics{
+  font-style: italic;
+}
+
+.styleUnderline{
+  text-decoration: underline;
+}
 
 .alignmentLeft{
 text-align: left;

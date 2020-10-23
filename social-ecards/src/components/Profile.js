@@ -1,4 +1,5 @@
 import React from 'react'
+import MyDeck from './MyDeck'
 
 class Profile extends React.Component {
   render () {
@@ -6,8 +7,9 @@ class Profile extends React.Component {
 
       <div className='profile'>
         <h1> Hello {this.props.username} !</h1>
+        <div>Here is your deck!</div>
         <div className='myCards'>
-          <p>Let's see if this works!!!!</p>
+          <MyDeck token={this.props.token} username={this.props.username} />
         </div>
       </div>
     )

@@ -4,45 +4,50 @@ import classNames from 'classnames'
 
 export default function MyCard ({ card }) {
   return (
-    <div>
+    <div className='card'>
       <Card style={{ width: '25rem' }}>
         <Card.Body className={classNames({
-          backgroundWhite: this.state.cardColor === 'white',
-          backgroundRed: this.state.cardColor === 'red',
-          backgroundOrange: this.state.cardColor === 'orange',
-          backgroundYellow: this.state.cardColor === 'yellow',
-          backgroundGreen: this.state.cardColor === 'green',
-          backgroundBlue: this.state.cardColor === 'blue',
-          backgroundIndigo: this.state.cardColor === 'indigo',
-          backgroundViolet: this.state.cardColor === 'violet',
-          backgroundBlack: this.state.cardColor === 'black',
-          borderSolid: this.state.borderStyle === 'solid',
-          borderDashed: this.state.borderStyle === 'dashed',
-          borderDotted: this.state.borderStyle === 'dotted',
-          borderDouble: this.state.borderStyle === 'double',
-          fontComicSans: this.state.fontStyle === 'comic sans',
-          fontPapyrus: this.state.fontStyle === 'papyrus',
-          fontWingdings: this.state.fontStyle === 'wingdings',
-          alignmentLeft: this.state.textAlign === 'left',
-          alignmentRight: this.state.textAlign === 'right',
-          alignmentCenter: this.state.textAlign === 'center',
-          alignmentJustified: this.state.textAlign === 'justified',
-          fontSizeSmall: this.state.fontSize === 'small',
-          fontSizeMedium: this.state.fontSize === 'medium',
-          fontSizeLarge: this.state.fontSize === 'large',
-          fontSizeJumbo: this.state.fontSize === 'xxxtra large'
+          backgroundWhite: card.card_color === 'WH',
+          backgroundRed: card.card_color === 'RD',
+          backgroundOrange: card.card_color === 'OR',
+          backgroundYellow: card.card_color === 'YE',
+          backgroundGreen: card.card_color === 'GR',
+          backgroundBlue: card.card_color === 'BL',
+          backgroundTeal: card.card_color === 'TE',
+          backgroundIndigo: card.card_color === 'IN',
+          backgroundViolet: card.card_color === 'VI',
+          backgroundBlack: card.card_color === 'BK',
+          borderSolid: card.borderStyle === '0',
+          borderDashed: card.borderStyle === '1',
+          borderDotted: card.borderStyle === '2',
+          borderDouble: card.borderStyle === '3',
+          fontSansSerif: card.fontFamily === 'SS',
+          fontSerif: card.fontFamily === 'SE',
+          styleNormal: card.fontStyle === 'N',
+          styleBold: card.fontStyle === 'B',
+          styleItalics: card.fontStyle === 'I',
+          styleUnderline: card.fontStyle === 'U',
+          alignmentLeft: card.textAlign === 'L',
+          alignmentRight: card.textAlign === 'R',
+          alignmentCenter: card.textAlign === 'C',
+          alignmentJustified: card.textAlign === 'J',
+          fontSizeSmall: card.fontSize === '0',
+          fontSizeMedium: card.fontSize === '1',
+          fontSizeLarge: card.fontSize === '2',
+          fontSizeJumbo: card.fontSize === '3'
         })}
         >
-          <Card.Title>{card.title}</Card.Title>
+          <Card.Text>
+            {card.inner_text}
+          </Card.Text>
+
           <Card.Text>
             {card.outer_text}
-            {card.inner_text}
           </Card.Text>
         </Card.Body>
 
       </Card>
       <p>{card.user}</p>
-
     </div>
   )
 }
