@@ -5,7 +5,8 @@ import classNames from 'classnames'
 export default function MyCard ({ card }) {
   return (
     <div className='card'>
-      <Card style={{ width: '25rem' }}>
+      <Card style={{ width: '40rem' }}>
+        <p> Created by: <u> {card.user}</u> at {card.posted_at}</p>
         <Card.Body className={classNames({
           backgroundWhite: card.card_color === 'WH',
           backgroundRed: card.card_color === 'RD',
@@ -44,10 +45,11 @@ export default function MyCard ({ card }) {
           <Card.Text>
             {card.outer_text}
           </Card.Text>
+
         </Card.Body>
 
       </Card>
-      <p>{card.user}</p>
+
     </div>
   )
 }

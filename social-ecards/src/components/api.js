@@ -21,20 +21,44 @@ export function getCard (token, id) {
   })
 }
 
-export function getCards (url, token) {
-  return request.get(url, {
+export function getCards (token) {
+  return axios.get('http://instaky.herokuapp.com/cards/all/', {
     headers: {
-      Authorization: `Token ${token}`
+      Authorization: 'Token ' + token
     }
-  }).then(response => {
-    return response.data
-  })
+  }).then(res => res.data)
 }
 
 export function getMyCards (token) {
-  return getCards('/cards/me/', token)
-}
+    return axios.get('http://instaky.herokuapp.com/cards/mine/', {
+      headers: {
+        Authorization: 'Token ' + token
+      }
+    }).then(res => res.data)
+  }
 
 export function getAllCards (token) {
-  return getCards('/cards/', token)
+  return request.get('/cards/all/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+}
+
+export function getFollowedCards (token) {
+  return request.get('/cards/all/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+}
+
+export function getFollowing (token) {
+  return request.get('/cards/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => {
+    return res.data
+  })
 }

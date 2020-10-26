@@ -11,7 +11,9 @@ import Header from './components/Header'
 import Logout from './components/Logout'
 import Profile from './components/Profile'
 import CardMaker from './components/AddCard'
-import AllCards from './components/AllCards'
+import Cards from './components/Cards'
+
+import FollowedCards from './components/FollowedList'
 
 class App extends React.Component {
   constructor () {
@@ -43,8 +45,8 @@ class App extends React.Component {
           <Route path='/logout/'><Logout onLogout={this.handleLogout} /></Route>
           <Route path='/profile'> <Profile token={this.state.token} username={this.state.username} /></Route>
           <Route path='/add-card'> <CardMaker token={this.state.token} username={this.state.username} Add Card /> </Route>
-          <Route path='/all/cards'> <AllCards token={this.state.token} username={this.state.username} /> All Cards </Route>
-          <Route path='/followed/cards'> Followed Cards </Route>
+          <Route path='/all/cards'> <Cards token={this.state.token} username={this.state.username} /> </Route>
+          <Route path='/followed/cards'> <FollowedCards token={this.state.token} />  Followed Cards </Route>
         </Switch>
       </Router>
     )
