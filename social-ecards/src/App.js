@@ -12,7 +12,7 @@ import Logout from './components/Logout'
 import Profile from './components/Profile'
 import CardMaker from './components/AddCard'
 import Cards from './components/Cards'
-
+import Friends from './components/Friends'
 import FollowedCards from './components/FollowedList'
 
 class App extends React.Component {
@@ -46,7 +46,8 @@ class App extends React.Component {
           <Route path='/profile'> <Profile token={this.state.token} username={this.state.username} /></Route>
           <Route path='/add-card'> <CardMaker token={this.state.token} username={this.state.username} Add Card /> </Route>
           <Route path='/all/cards'> <Cards token={this.state.token} username={this.state.username} /> </Route>
-          <Route path='/followed/cards'> <FollowedCards token={this.state.token} />  Followed Cards </Route>
+          <Route path='/followed/cards'> <Friends token={this.state.token} />  </Route>
+          <Route path='/friends'> <Friends token={this.state.token} />  </Route>
         </Switch>
       </Router>
     )

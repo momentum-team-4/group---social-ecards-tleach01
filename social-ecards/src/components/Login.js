@@ -1,5 +1,10 @@
 import React from 'react'
 import { getToken } from './api'
+import {
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor () {
@@ -45,7 +50,7 @@ class Login extends React.Component {
               <input id='password' type='password' value={this.state.password} onChange={event => this.setState({ password: event.target.value })} />
             </div>
             <div>
-              <button type='submit' className='login-button'>Login</button>
+              <button type='submit' className='loginBtn'>Login</button>
             </div>
           </form>
         </div>

@@ -29,13 +29,21 @@ export function getCards (token) {
   }).then(res => res.data)
 }
 
+export function deleteACard (token, id) {
+  return request.delete(`/cards/${id}/`, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+}
+
 export function getMyCards (token) {
-    return axios.get('http://instaky.herokuapp.com/cards/mine/', {
-      headers: {
-        Authorization: 'Token ' + token
-      }
-    }).then(res => res.data)
-  }
+  return axios.get('http://instaky.herokuapp.com/cards/mine/', {
+    headers: {
+      Authorization: 'Token ' + token
+    }
+  }).then(res => res.data)
+}
 
 export function getAllCards (token) {
   return request.get('/cards/all/', {
@@ -46,19 +54,52 @@ export function getAllCards (token) {
 }
 
 export function getFollowedCards (token) {
-  return request.get('/cards/all/', {
+  return request.get('/cards/following/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+}
+export function getFollowing (token) {
+  return request.get('/users/following/', {
     headers: {
       Authorization: `Token ${token}`
     }
   })
 }
 
-export function getFollowing (token) {
-  return request.get('/cards/', {
+export function getFriends (token) {
+  return request.get('/users/following/', {
     headers: {
       Authorization: `Token ${token}`
     }
-  }).then(res => {
-    return res.data
+  }).then(response => {
+    return response.data.results
   })
+}
+
+export function getUsers (token) {
+  return request.get('/users/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  })
+}
+
+export function getComment (token, id) {
+  return request.get(`/comment/${id}/`, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(response => {
+    return response.data
+  })
+}
+
+export function register (username, password) {
+  return axios.post('http://instaky.herokuapp.com/auth/users', {
+    username: username,
+    password: password
+  })
+    .then(res => res.token)
 }

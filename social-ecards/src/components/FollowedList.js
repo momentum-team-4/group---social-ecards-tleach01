@@ -1,39 +1,28 @@
-import React from 'react'
-import Cards from './Cards'
-import { getFollowedCards, getFollowing } from './api'
+import React, { useState, useEffect } from 'react'
+import { getFollowedCards, getUsers } from './api.js'
+import Card from './Card'
+import FollowButton from './FollowButton'
 
-class FollowedCards extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      cards: [],
-      followingFriends: []
-    }
-  }
+export default function Cards (props) {
+  const { token } = props
+  const [loading, setLoading] = useState(true)
+  const [cards, setCards] = useState([])
 
-  componentDidMount () {
-    getFollowedCards(this.props.token).then(cards => this.setState({ cards: cards }))
-    getFollowing(this.props.token).then(followingFriends => ({ followingFriends: followingFriends }))
-  }
+  useEffect(() => {
+    getFollowedCards(token).then(data => {
+      setCards(data)
+      setLoading(false)
+    })
+  }, [token])
 
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.token && this.props.token !== prevProps.token) {
-      getFollowedCards(this.props.token).then(cards => this.setState({ cards: cards }))
-    }
+  if (loading) {
+    return <p>Loading your cards...</p>
   }
-
-  render () {
-    return (
-      <div>
-        <h2>Friends Cards</h2>
-        {this.state.followingFriends.map(followingFriend =>
-          <p key={followingFriend.id}> {followingFriend}</p>)}
-        <div>
-          <Cards cards={this.state.cards} />
-        </div>
-      </div>
-    )
-  }
+  return (
+    <div className='cards'>
+      {cards.map(card => (
+        <Card key={card.id} card={card} />
+      ))}
+    </div>
+  )
 }
-
-export default FollowedCards

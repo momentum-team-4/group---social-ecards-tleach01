@@ -16,22 +16,23 @@ class CardMaker extends React.Component {
       outer_text: '',
       inner_text: '',
       card_color: '',
-      borderStyle: '',
-      fontStyle: '',
-      fontFamily: 'American Typewriter',
-      textAlign: '',
-      fontSize: '',
+      border_style: '',
+      font_style: '',
+      font_family: 'American Typewriter',
+      text_align: '',
+      font_size: '',
+      image: '',
       created: false
     }
     this.handleOuterTextChange = this.handleOuterTextChange.bind(this)
     this.handleInnerTextChange = this.handleInnerTextChange.bind(this)
-
     this.handleColorChange = this.handleColorChange.bind(this)
     this.handleBorderChange = this.handleBorderChange.bind(this)
     this.handleFontFamilyChange = this.handleFontFamilyChange.bind(this)
     this.handleFontStyleChange = this.handleFontStyleChange.bind(this)
     this.handleTextAlignChange = this.handleTextAlignChange.bind(this)
     this.handleFontSizeChange = this.handleFontSizeChange.bind(this)
+    this.handleImageChange = this.handleImageChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -48,23 +49,27 @@ class CardMaker extends React.Component {
   }
 
   handleBorderChange (event) {
-    this.setState({ borderStyle: event.target.value })
+    this.setState({ border_style: event.target.value })
   }
 
   handleFontFamilyChange (event) {
-    this.setState({ fontFamily: event.target.value })
+    this.setState({ font_family: event.target.value })
   }
 
   handleFontStyleChange (event) {
-    this.setState({ fontStyle: event.target.value })
+    this.setState({ font_style: event.target.value })
   }
 
   handleTextAlignChange (event) {
-    this.setState({ textAlign: event.target.value })
+    this.setState({ text_align: event.target.value })
   }
 
   handleFontSizeChange (event) {
-    this.setState({ fontSize: event.target.value })
+    this.setState({ font_size: event.target.value })
+  }
+
+  handleImageChange (event) {
+    this.setState({ image: event.target.value})
   }
 
   handleSubmit (event) {
@@ -74,11 +79,12 @@ class CardMaker extends React.Component {
         outer_text: this.state.outer_text,
         inner_text: this.state.inner_text,
         card_color: this.state.card_color,
-        border_style: this.state.borderStyle,
-        font_family: this.state.fontFamily,
-        font_style: this.state.fontStyle,
-        text_align: this.state.textAlign,
-        font_size: this.state.fontSize
+        border_style: this.state.border_style,
+        font_family: this.state.font_family,
+        font_style: this.state.font_style,
+        text_align: this.state.text_align,
+        font_size: this.state.font_size,
+        image: this.state.image
       },
       {
         headers: {
@@ -111,24 +117,24 @@ class CardMaker extends React.Component {
                 backgroundIndigo: this.state.card_color === 'IN',
                 backgroundViolet: this.state.card_color === 'VI',
                 backgroundBlack: this.state.card_color === 'BK',
-                borderSolid: this.state.borderStyle === '0',
-                borderDashed: this.state.borderStyle === '1',
-                borderDotted: this.state.borderStyle === '2',
-                borderDouble: this.state.borderStyle === '3',
-                fontSansSerif: this.state.fontFamily === 'SS',
-                fontSerif: this.state.fontFamily === 'SE',
-                styleNormal: this.state.fontStyle === 'N',
-                styleBold: this.state.fontStyle === 'B',
-                styleItalics: this.state.fontStyle === 'I',
-                styleUnderline: this.state.fontStyle === 'U',
-                alignmentLeft: this.state.textAlign === 'L',
-                alignmentRight: this.state.textAlign === 'R',
-                alignmentCenter: this.state.textAlign === 'C',
-                alignmentJustified: this.state.textAlign === 'J',
-                fontSizeSmall: this.state.fontSize === '0',
-                fontSizeMedium: this.state.fontSize === '1',
-                fontSizeLarge: this.state.fontSize === '2',
-                fontSizeJumbo: this.state.fontSize === '3'
+                borderSolid: this.state.border_style === 0,
+                borderDashed: this.state.border_style === 1,
+                borderDotted: this.state.border_style === 2,
+                borderDouble: this.state.border_style === 3,
+                fontSansSerif: this.state.font_family === 'SS',
+                fontSerif: this.state.font_family === 'SE',
+                styleNormal: this.state.font_style === 'N',
+                styleBold: this.state.font_style === 'B',
+                styleItalics: this.state.font_style === 'I',
+                styleUnderline: this.state.font_style === 'U',
+                alignmentLeft: this.state.text_align === 'L',
+                alignmentRight: this.state.text_align === 'R',
+                alignmentCenter: this.state.text_align === 'C',
+                alignmentJustified: this.state.text_align === 'J',
+                fontSizeSmall: this.state.font_size === '0',
+                fontSizeMedium: this.state.font_size === '1',
+                fontSizeLarge: this.state.font_size === '2',
+                fontSizeJumbo: this.state.font_size === '3'
               })}
               >
                 <Card.Text>
@@ -195,7 +201,7 @@ class CardMaker extends React.Component {
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId='cardFontStyle'>
+                  <Form.Group controlId='cardFont_style'>
                     <Form.Label>Font Style</Form.Label>
                     <Form.Control as='select' onChange={this.handleFontStyleChange}>
                       <option value='N'>Normal</option>
@@ -205,7 +211,7 @@ class CardMaker extends React.Component {
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId='textAlignment'>
+                  <Form.Group controlId='text_alignment'>
                     <Form.Label>Text Alignment</Form.Label>
                     <Form.Control as='select' onChange={this.handleTextAlignChange}>
                       <option value='L'>Left</option>
@@ -215,13 +221,20 @@ class CardMaker extends React.Component {
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId='fontSize'>
+                  <Form.Group controlId='font_size'>
                     <Form.Label>Font Size</Form.Label>
                     <Form.Control as='select' onChange={this.handleFontSizeChange}>
                       <option value='0'>Small</option>
                       <option value='1'>Medium</option>
                       <option value='2'>Large</option>
                       <option value='3'>Jumbo</option>
+                    </Form.Control>
+                  </Form.Group>
+
+                  <Form.Group controlId='cardImage'>
+                    <Form.Label htmlFor='image'>Add Image</Form.Label>
+                    <Form.Control as='select' onChange={this.handleImageChange}>
+                      <input type='file' id='image' />
                     </Form.Control>
                   </Form.Group>
 

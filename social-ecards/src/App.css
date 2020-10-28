@@ -4,8 +4,31 @@
   padding: 0;
 }
 
+.card{
+  padding: 10px;
+  min-height: 100px;
+  margin-left: 2rem;
+}
+
+.image, img{
+  max-width: 75%;
+  max-width: 85%;
+  margin-left: 32px;
+}
+
+.cardHeader{
+  text-decoration: underline;
+}
+
+#backCard, #frontCard{
+  padding: 10px;
+  margin: 4px;
+}
+
 body {
   font-family: 'Comfortaa', cursive;
+  background: rgb(241,241,241);
+  background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(175,223,244,1) 55%, rgba(202,220,227,1) 100%);
 }
 .appheader{
   background-color: rgb(52, 52, 52);
@@ -69,6 +92,14 @@ button{
   font-size: large;
   border-radius: 5px;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.followBtn{
+  display: flex;
+  justify-content: flex-end;
 }
 
 .backgroundWhite{
@@ -76,7 +107,7 @@ background-color: white;
 color: black;
 }
 .backgroundRed{
-background-color: rgb(187, 0, 0);
+background-color: rgb(203, 24, 24);
 color: black;
 }            
 .backgroundOrange{
@@ -88,7 +119,7 @@ background-color: gold;
 color:black;
 }
 .backgroundGreen{
-background-color: rgb(0, 147, 0);
+background-color: rgb(86, 218, 86);
 }                    
 .backgroundBlue{
 background-color: deepskyblue;
@@ -104,7 +135,7 @@ color: white;
 }
 .backgroundViolet{
 background-color: rgb(150, 55, 150);
-color: black;
+color: rgb(255, 255, 255);
 }
 .backgroundBlack{
 background-color: black;
@@ -142,7 +173,7 @@ font-family: serif;
 }
 
 .styleBold{
-  font-style: bold;
+  font-style: bolder;
 }
 
 .styleItalics{
@@ -150,7 +181,7 @@ font-family: serif;
 }
 
 .styleUnderline{
-  text-decoration: underline;
+  text-decoration: underline black 5px;
 }
 
 .alignmentLeft{
@@ -177,3 +208,5 @@ font-size: x-large;
 .fontSizeJumbo{
 font-size: 250%;
 }
+
+

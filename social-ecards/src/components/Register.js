@@ -1,22 +1,21 @@
 import React, { useState } from 'react'
-import { register } from './axios.js'
+import { register } from './api.js'
 import { Redirect } from 'react-router-dom'
 
 function Register (props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
   const [message, setMessage] = useState(null)
   const { token, onRegister } = props
 
   if (token) {
-    return <Redirect to='/' />
+    return <Redirect to='/cards' />
   }
 
   function registration (event) {
     event.preventDefault()
 
-    register(username, password, email)
+    register(username, password)
       .then(function (token) {
         setMessage('Welcome to CardTalk!')
         onRegister(token)
@@ -29,17 +28,13 @@ function Register (props) {
         <div>
           {message}
         </div>}
-      <div>Sign Up for CardTalk</div>
+      <div className='signup'>Sign Up for CardTalk</div>
       <form onSubmit={registration} className='register'>
         <label
           htmlFor='username'
         />
         <input
-          type='text'
-          className='form'
-          placeholder='Username'
-          name='username'
-          value={username}
+          type='text' className='form' placeholder='Username' name='username' value={username}
           onChange={event => setUsername(event.target.value)}
         />
         <label
@@ -52,12 +47,8 @@ function Register (props) {
         <label
           htmlFor='email'
         />
-        <input
-          type='text' className='form' placeholder='Email' name='email' value={email}
-          onChange={event => setEmail(event.target.value)}
-        />
         <button className='formBtn' type='submit'>
-            Register
+            Sign Up
         </button>
       </form>
     </div>

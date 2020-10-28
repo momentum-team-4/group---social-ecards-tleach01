@@ -1,35 +1,28 @@
-import React from 'react'
-import { getMyCards } from './api.js'
-import Cards from './Cards'
+import React, { useState, useEffect } from 'react'
+import { getMyCards, getUsers } from './api.js'
+import Card from './Card'
 
-class MyDeck extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      cards: []
-    }
-    this.handleDelete = this.handleDelete.bind(this)
-  }
+export default function Cards (props) {
+  const { token } = props
+  const [loading, setLoading] = useState(true)
+  const [cards, setCards] = useState([])
 
-  handleDelete (event) {
-    this.setState({ card: {} })
-  }
+  useEffect(() => {
+    getMyCards(token).then(data => {
+      setCards(data)
+      setLoading(false)
+    })
+  }, [token])
 
-  componentDidMount () {
-    getMyCards(this.props.token, this.props.username).then(cards => this.setState({ cards: cards }))
+  if (loading) {
+    return <p>Loading your cards...</p>
   }
-
-  componentDidUpdate (prevProps, prevState) {
-    if (this.props.token && this.props.token !== prevProps.token) {
-      getMyCards(this.props.token).then(cards => this.setState({ cards: cards }))
-    }
-  }
-
-  render () {
-    return (
-      <Cards cards={this.state.cards} onDelete={this.handleDelete} />
-    )
-  }
+  return (
+    <div className='cards'>
+      {cards.map(card => (
+        <Card key={card.id} card={card} />
+      ))}
+    </div>
+  )
 }
 
-export default MyDeck
