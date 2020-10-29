@@ -97,7 +97,7 @@ export function getComment (token, id) {
 }
 
 export function register (username, password) {
-  return axios.post('https://instaky.herokuapp.com/auth/users', {
+  return axios.post('https://instaky.herokuapp.com/auth/users/', {
     username: username,
     password: password
   })

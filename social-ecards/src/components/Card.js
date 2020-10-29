@@ -3,7 +3,6 @@ import Card from 'react-bootstrap/Card'
 import classNames from 'classnames'
 import { parse, format } from 'fecha'
 import PropTypes from 'prop-types'
-import LikeButton from './LikeButton'
 import FollowButton from './FollowButton'
 import { Link } from 'react-router-dom'
 import ReactCardFlip from 'react-card-flip'
@@ -78,7 +77,6 @@ export default function ACard ({ card }) {
 
       </Card>
       <i className='far fa-heart' /><Link to='/profile/{card.url}'> {card.liked_by} </Link>
-      <LikeButton card={card.id} />
 
     </div>
   )

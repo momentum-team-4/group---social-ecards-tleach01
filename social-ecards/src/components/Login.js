@@ -32,7 +32,6 @@ class Login extends React.Component {
     return (
 
       <div className='login'>
-        
         <div className='login-form'>
           <form onSubmit={this.handleLogin}>
             <div>
@@ -51,7 +50,7 @@ class Login extends React.Component {
             </div>
           </form>
         </div>
-        <Register></Register>
+        <Register />
       </div>
     )
   }
