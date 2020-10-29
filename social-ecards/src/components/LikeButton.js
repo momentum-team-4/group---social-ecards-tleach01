@@ -53,7 +53,7 @@ handleLikedCard = e => {
         <div>
           <button
             
-            className="button"
+            className="likeBtn"
             onClick= {() => {
                 this.toggleLike();
                 this.handleLikedCard();
@@ -68,7 +68,7 @@ handleLikedCard = e => {
         <div>
           <button 
             cardId='liked_by.id'
-            className="button" 
+            className="likeBtn" 
             onClick= {() => {
                 this.toggleLike();
                 this.handleLikedCard();
@@ -83,7 +83,7 @@ handleLikedCard = e => {
       return (
         <div>
         <button
-          className="button"
+          className="likeBtn"
           onClick= {() => {
             this.toggleLike();
             this.handleLikedCard();

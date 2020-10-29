@@ -63,14 +63,14 @@ export default function ACard ({ card }) {
           <ReactCardFlip isFlipped={isFlipped} flipDirection='horizontal'>
             <Card.Text id='frontCard'>
               {card.inner_text}
-              <button onClick={handleClick}>Click</button>
+              <button className='flipBtn' onClick={handleClick}><i className='fas fa-arrow-circle-right' /></button>
             </Card.Text>
             <Card.Text id='backCard'>
               {card.outer_text}
               {card.image && (
                 <img src={card.image} alt='card' className='image' />
               )}
-              <button onClick={handleClick}>Click</button>
+              <button className='flipBtn' onClick={handleClick}><i className='fas fa-arrow-circle-left' /></button>
             </Card.Text>
 
           </ReactCardFlip>
@@ -79,7 +79,6 @@ export default function ACard ({ card }) {
       </Card>
       <i className='far fa-heart' /><Link to='/profile/{card.url}'> {card.liked_by} </Link>
       <LikeButton card={card.id} />
-
 
     </div>
   )
