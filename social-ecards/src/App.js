@@ -13,6 +13,7 @@ import Profile from './components/Profile'
 import CardMaker from './components/AddCard'
 import Cards from './components/Cards'
 import Friends from './components/Friends'
+import Register from './components/Register'
 
 class App extends React.Component {
   constructor () {
@@ -47,6 +48,7 @@ class App extends React.Component {
           <Route path='/all/cards'> <Cards token={this.state.token} username={this.state.username} /> </Route>
           <Route path='/followed/cards'> <Friends token={this.state.token} />  </Route>
           <Route path='/friends'> <Friends token={this.state.token} />  </Route>
+          <Route path='/register'><Register /></Route>
         </Switch>
       </Router>
     )

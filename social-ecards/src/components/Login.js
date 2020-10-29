@@ -1,5 +1,6 @@
 import React from 'react'
 import { getToken } from './api'
+import Register from './Register'
 
 class Login extends React.Component {
   constructor () {
@@ -31,6 +32,7 @@ class Login extends React.Component {
     return (
 
       <div className='login'>
+        
         <div className='login-form'>
           <form onSubmit={this.handleLogin}>
             <div>
@@ -49,6 +51,7 @@ class Login extends React.Component {
             </div>
           </form>
         </div>
+        <Register></Register>
       </div>
     )
   }
