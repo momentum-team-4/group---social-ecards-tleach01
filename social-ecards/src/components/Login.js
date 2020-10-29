@@ -1,10 +1,5 @@
 import React from 'react'
 import { getToken } from './api'
-import {
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom'
 
 class Login extends React.Component {
   constructor () {

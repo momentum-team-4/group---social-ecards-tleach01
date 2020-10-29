@@ -13,7 +13,6 @@ import Profile from './components/Profile'
 import CardMaker from './components/AddCard'
 import Cards from './components/Cards'
 import Friends from './components/Friends'
-import FollowedCards from './components/FollowedList'
 
 class App extends React.Component {
   constructor () {

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 import LikeButton from './LikeButton'
 import FollowButton from './FollowButton'
 import { Link } from 'react-router-dom'
-import { getComment } from './api'
 import ReactCardFlip from 'react-card-flip'
 
 export default function ACard ({ card }) {
@@ -25,8 +24,9 @@ export default function ACard ({ card }) {
   return (
     <div className='card'>
       <Card style={{ width: '40rem' }}>
+        <FollowButton userId={card.user_id} />
         <p className='cardHeader'> Posted by:
-          <em> <Link to='/profile/{card.url}'>{card.user} </Link></em>
+          <em> <Link to='/profile/{card.user_id}'>{card.user} </Link></em>
              on {postedAt}
         </p>
         <Card.Body className={classNames({
@@ -68,7 +68,7 @@ export default function ACard ({ card }) {
             <Card.Text id='backCard'>
               {card.outer_text}
               {card.image && (
-                <img src={card.image} className='image' />
+                <img src={card.image} alt='card' className='image' />
               )}
               <button onClick={handleClick}>Click</button>
             </Card.Text>
@@ -79,7 +79,7 @@ export default function ACard ({ card }) {
       </Card>
       <i className='far fa-heart' /><Link to='/profile/{card.url}'> {card.liked_by} </Link>
       <LikeButton card={card.id} />
-      <FollowButton userId={card.user_id} />
+
 
     </div>
   )

@@ -21,17 +21,16 @@ export default class Friends extends React.Component {
   }
 
   render () {
-    const { users, id } = this.state
+    const { users } = this.state
 
     return (
       <div className='dib v-mid'>
-        <h2 />
         <div>
-          <h2>Below is the list of your friends on CardTalk</h2>
+          <h2>Below are your followers on CardTalk</h2>
           {users.filter(user => user.id === 1).map((user, id) =>
-            <ul key={user.id} className='cards'>
-              <li><b>Followers:</b> {user.followers}</li>
-              <li><img src={user.profile_picture} /></li>
+            <ul key={user.id} className='followers'>
+              <li><b>Follower:</b> {user.username}</li>
+              <li><img src={user.profile_picture} alt='profile' className='followImage' /></li>
               <li>{user.url}</li>
 
             </ul>

@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios';
-import Cards from './Cards'
 
 export default class HeartButton extends React.Component {
     constructor(props){
@@ -8,7 +7,8 @@ export default class HeartButton extends React.Component {
   this.state = {
     liked_by: false,
     users: [], 
-    token: localStorage.getItem('login_auth_token')
+    token: localStorage.getItem('login_auth_token'),
+  userid: this.props.userId
   }
   this.toggleLike=this.toggleLike.bind(this)
 
@@ -33,7 +33,7 @@ handleSubmit = e => {
 }
 
 handleLikedCard = e => {
-    const {cardId} = this.props
+  
     axios.get(`http://instaky.herokuapp.com/cards/like`, this.state, {
       headers: {
         Authorization: `Token ${this.state.token}`
@@ -47,7 +47,6 @@ handleLikedCard = e => {
   }
 
   render() {
-    const { cardId } = this.props
     const liked_by = this.state.liked_by;
     if (liked_by === null) {
       return (

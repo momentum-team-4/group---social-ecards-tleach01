@@ -231,7 +231,7 @@ class CardMaker extends React.Component {
                     </Form.Control>
                   </Form.Group>
 
-                  <Form.Group controlId='cardImage'>
+                  <Form.Group>
                     <Form.Label htmlFor='image'>Upload Image</Form.Label>
                     <Form.Control input type='file' id='image' onChange={this.handleImageChange}>
                     </Form.Control>

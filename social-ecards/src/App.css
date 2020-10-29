@@ -10,6 +10,14 @@
   margin-left: 2rem;
 }
 
+.followers{
+  border: cornflowerblue solid 5px;
+}
+.followImage{
+  max-width: 25%;
+
+}
+
 .image, img{
   max-width: 75%;
   max-width: 85%;
@@ -98,8 +106,7 @@ button{
 }
 
 .followBtn{
-  display: flex;
-  justify-content: flex-end;
+  margin-left: 40rem;
 }
 
 .backgroundWhite{

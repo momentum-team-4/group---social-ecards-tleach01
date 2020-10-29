@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getMyCards, getUsers } from './api.js'
+import { getMyCards } from './api.js'
 import Card from './Card'
 
 export default function Cards (props) {

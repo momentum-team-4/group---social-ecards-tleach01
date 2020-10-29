@@ -1,7 +1,6 @@
 import React from 'react'
 import MyDeck from './MyDeck'
-import FollowButton from './FollowButton'
-import { getUsers } from './api'
+
 
 class Profile extends React.Component {
   render () {

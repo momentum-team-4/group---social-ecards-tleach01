@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios';
-import Cards from './Cards'
 
 export default class FollowButton extends React.Component {
     constructor(props){
@@ -47,7 +46,6 @@ handleFollowing = e => {
   }
 
   render() {
-    const { usersid } = this.props
     const followers = this.state.followers;
     if (followers === null) {
       return (
@@ -69,7 +67,7 @@ handleFollowing = e => {
         <div>
           <button 
             usersid='followers.id'
-            className="button" 
+            className="followBtn" 
             onClick= {() => {
                 this.toggleFollow();
                 this.handleFollowing();
@@ -84,7 +82,7 @@ handleFollowing = e => {
       return (
         <div>
         <button
-          className="button"
+          className="followBtn"
           onClick= {() => {
             this.toggleFollow();
             this.handleFollowing();
