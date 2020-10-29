@@ -103,3 +103,13 @@ export function register (username, password) {
   })
     .then(res => res.token)
 }
+
+export function uploadImage (token, cardUrl, image) {
+  return axios.put(cardUrl + 'image/', image, {
+    headers: {
+      Authorization: 'Token ' + token,
+      'Content-Type': image.type,
+      'Content-Disposition': `attachment; filename=${image.name}`
+    }
+  }).then(res => res.data)
+}

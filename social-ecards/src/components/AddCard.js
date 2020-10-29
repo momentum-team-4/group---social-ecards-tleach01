@@ -21,7 +21,7 @@ class CardMaker extends React.Component {
       font_family: 'American Typewriter',
       text_align: '',
       font_size: '',
-      image: '',
+      image: null,
       created: false
     }
     this.handleOuterTextChange = this.handleOuterTextChange.bind(this)
@@ -69,11 +69,14 @@ class CardMaker extends React.Component {
   }
 
   handleImageChange (event) {
-    this.setState({ image: event.target.value})
+    console.log(event.target)
+    this.setState({ image: event.target.files[0] })
   }
 
   handleSubmit (event) {
     event.preventDefault()
+    const fd = new FormData()
+    fd.append('image', this.state.image, this.state.image.name)
     axios
       .post('http://instaky.herokuapp.com/cards/', {
         outer_text: this.state.outer_text,
@@ -85,7 +88,7 @@ class CardMaker extends React.Component {
         text_align: this.state.text_align,
         font_size: this.state.font_size,
         image: this.state.image
-      },
+      }, fd,
       {
         headers: {
           Authorization: `Token ${this.props.token}`
@@ -93,7 +96,8 @@ class CardMaker extends React.Component {
       }
       )
       .then(response =>
-        this.setState({ created: true }))
+        console.log(response),
+      this.setState({ created: true }))
   }
 
   render () {
@@ -138,18 +142,14 @@ class CardMaker extends React.Component {
               })}
               >
                 <Card.Text>
-
                   {this.state.inner_text}
-
                 </Card.Text>
 
                 <Card.Text>
                   {this.state.outer_text}
-
                 </Card.Text>
 
               </Card.Body>
-
             </Card>
           </div>
         </Col>
@@ -232,9 +232,8 @@ class CardMaker extends React.Component {
                   </Form.Group>
 
                   <Form.Group controlId='cardImage'>
-                    <Form.Label htmlFor='image'>Add Image</Form.Label>
-                    <Form.Control as='select' onChange={this.handleImageChange}>
-                      <input type='file' id='image' />
+                    <Form.Label htmlFor='image'>Upload Image</Form.Label>
+                    <Form.Control input type='file' id='image' onChange={this.handleImageChange}>
                     </Form.Control>
                   </Form.Group>
 

@@ -8,10 +8,10 @@ export default class FollowButton extends React.Component {
   this.state = {
     followers: false,
     users: [], 
-    token: localStorage.getItem('login_auth_token')
+    token: localStorage.getItem('login_auth_token'),
+    userid: this.props.userId
   }
   this.toggleFollow=this.toggleFollow.bind(this)
-
 }
 
 toggleFollow() {
@@ -19,7 +19,7 @@ toggleFollow() {
 }
 
 handleSubmit = e => {
-    axios.post('http://instaky.herokuapp.com/users/following/', this.state, {
+    axios.post('http://instaky.herokuapp.com/users/', this.state, {
         headers: {
             Authorization: `Token ${this.state.token}`
         }
@@ -33,13 +33,13 @@ handleSubmit = e => {
 }
 
 handleFollowing = e => {
-    const {usersId} = this.props
-    axios.get(`http://instaky.herokuapp.com/users/following/`, {
+    axios.post(`http://instaky.herokuapp.com/users/${this.state.userid}/follow/`, this.state, {
       headers: {
         Authorization: `Token ${this.state.token}`
       }
     })
     .then(response => {
+      console.log(response)
     })
     .catch(error => {
       console.log(error)
@@ -47,7 +47,7 @@ handleFollowing = e => {
   }
 
   render() {
-    const { usersId } = this.props
+    const { usersid } = this.props
     const followers = this.state.followers;
     if (followers === null) {
       return (
@@ -68,13 +68,13 @@ handleFollowing = e => {
       return (
         <div>
           <button 
-            usersId='followers.id'
+            usersid='followers.id'
             className="button" 
             onClick= {() => {
                 this.toggleFollow();
                 this.handleFollowing();
             }}>
-            <i class="fas fa-user-plus"></i>
+            <i className="fas fa-user-plus"></i>
           </button>
         </div>
       );

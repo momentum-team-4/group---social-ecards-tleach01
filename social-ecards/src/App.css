@@ -27,8 +27,8 @@
 
 body {
   font-family: 'Comfortaa', cursive;
-  background: rgb(241,241,241);
-  background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(175,223,244,1) 55%, rgba(202,220,227,1) 100%);
+  background-color: rgb(255, 255, 255);
+  
 }
 .appheader{
   background-color: rgb(52, 52, 52);

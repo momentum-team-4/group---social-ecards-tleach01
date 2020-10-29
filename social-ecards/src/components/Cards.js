@@ -42,6 +42,7 @@ export default function Cards (props) {
   if (loading) {
     return <p>Loading your cards...</p>
   }
+
   return (
     <div className='cards'>
       <InfiniteScroll

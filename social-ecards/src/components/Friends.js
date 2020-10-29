@@ -31,6 +31,8 @@ export default class Friends extends React.Component {
           {users.filter(user => user.id === 1).map((user, id) =>
             <ul key={user.id} className='cards'>
               <li><b>Followers:</b> {user.followers}</li>
+              <li><img src={user.profile_picture} /></li>
+              <li>{user.url}</li>
 
             </ul>
           )}

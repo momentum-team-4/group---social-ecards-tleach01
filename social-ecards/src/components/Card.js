@@ -68,9 +68,7 @@ export default function ACard ({ card }) {
             <Card.Text id='backCard'>
               {card.outer_text}
               {card.image && (
-          <p className='image'>
-                  <img src={card.image} />
-                </p>
+                <img src={card.image} className='image' />
               )}
               <button onClick={handleClick}>Click</button>
             </Card.Text>
@@ -81,7 +79,7 @@ export default function ACard ({ card }) {
       </Card>
       <i className='far fa-heart' /><Link to='/profile/{card.url}'> {card.liked_by} </Link>
       <LikeButton card={card.id} />
-      <FollowButton />
+      <FollowButton userId={card.user_id} />
 
     </div>
   )
