@@ -18,7 +18,7 @@ toggleFollow() {
 }
 
 handleSubmit = e => {
-    axios.post('http://instaky.herokuapp.com/users/', this.state, {
+    axios.post('https://instaky.herokuapp.com/users/', this.state, {
         headers: {
             Authorization: `Token ${this.state.token}`
         }
@@ -32,7 +32,7 @@ handleSubmit = e => {
 }
 
 handleFollowing = e => {
-    axios.post(`http://instaky.herokuapp.com/users/${this.state.userid}/follow/`, this.state, {
+    axios.post(`https://instaky.herokuapp.com/users/${this.state.userid}/follow/`, this.state, {
       headers: {
         Authorization: `Token ${this.state.token}`
       }

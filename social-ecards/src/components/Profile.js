@@ -1,7 +1,6 @@
 import React from 'react'
 import MyDeck from './MyDeck'
 
-
 class Profile extends React.Component {
   render () {
     return (
@@ -18,4 +17,3 @@ class Profile extends React.Component {
 }
 
 export default Profile
-
