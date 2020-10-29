@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'http://instaky.herokuapp.com/'
+  baseURL: 'https://instaky.herokuapp.com/'
 })
 
 export function getToken (username, password) {
@@ -22,7 +22,7 @@ export function getCard (token, id) {
 }
 
 export function getCards (token) {
-  return axios.get('http://instaky.herokuapp.com/cards/all/', {
+  return axios.get('https://instaky.herokuapp.com/cards/all/', {
     headers: {
       Authorization: 'Token ' + token
     }
@@ -38,7 +38,7 @@ export function deleteACard (token, id) {
 }
 
 export function getMyCards (token) {
-  return axios.get('http://instaky.herokuapp.com/cards/mine/', {
+  return axios.get('https://instaky.herokuapp.com/cards/mine/', {
     headers: {
       Authorization: 'Token ' + token
     }
@@ -97,7 +97,7 @@ export function getComment (token, id) {
 }
 
 export function register (username, password) {
-  return axios.post('http://instaky.herokuapp.com/auth/users', {
+  return axios.post('https://instaky.herokuapp.com/auth/users', {
     username: username,
     password: password
   })
